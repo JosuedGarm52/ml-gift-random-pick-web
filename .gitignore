@@ -1,0 +1,19 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Node / dependencias (si luego agregas React u otras librerías)
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+
+# Archivos de build / compilación (por si agregas algún preprocesador CSS)
+*.min.css
+*.min.js
