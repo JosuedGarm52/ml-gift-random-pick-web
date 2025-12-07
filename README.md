@@ -17,8 +17,8 @@ Una vez configurado, el usuario pulsa un botón y aparece una especie de ruleta 
 - Experiencia interactiva tipo ruleta para la selección del regalo.  
 
 **Tecnologías**
-- Frontend: HTML, CSS, JavaScript (React opcional en futuras versiones).  
-- Backend: API REST (Laravel o cualquier backend que sirva los datos de Mercado Libre).  
+- Frontend: HTML, CSS, JavaScript 
+- Backend: API REST 
 
 **Uso**  
 ...  
