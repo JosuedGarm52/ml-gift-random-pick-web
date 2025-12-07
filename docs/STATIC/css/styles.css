@@ -27,6 +27,21 @@ body.dark-mode {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Haz que el main ocupe el espacio restante entre header y footer */
+main {
+    flex: 1;
+}
+
 /* Header */
 .header {
     display: flex;
