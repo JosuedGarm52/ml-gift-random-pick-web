@@ -71,5 +71,45 @@
         });
 
     </script>
+
+    <script>
+        // Nombre de la clave en almacenamiento
+        const STORAGE_KEY = 'lastPreferenceMode';
+
+        // Función para aplicar el modo
+        function applyTheme(mode) {
+            if(mode === 'dark') {
+                $('body').addClass('dark-mode');
+                $('#toggleTheme').prop('checked', true);
+            } else {
+                $('body').removeClass('dark-mode');
+                $('#toggleTheme').prop('checked', false);
+            }
+        }
+
+        // Al cargar la página
+        $(document).ready(function() {
+            // Obtener la preferencia guardada
+            let lastPreference = localStorage.getItem(STORAGE_KEY);
+
+            if(lastPreference) {
+                // Aplicar la preferencia anterior
+                applyTheme(lastPreference);
+            } else {
+                // Por defecto modo claro
+                applyTheme('light');
+            }
+
+            // Evento al cambiar el switch
+            $('#toggleTheme').change(function() {
+                let mode = $(this).is(':checked') ? 'dark' : 'light';
+                applyTheme(mode);
+
+                // Guardar la preferencia
+                localStorage.setItem(STORAGE_KEY, mode);
+            });
+        });
+
+    </script>
 </body>
 </html>
