@@ -9,6 +9,10 @@
     <script src="STATIC/min.js/jquery.min.js"></script>
 </head>
 <body>
+    <!-- Spinner global -->
+    <div id="spinnerOverlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
     <div class="header">
         <h1>🎁 ML Gift Random Pick</h1>
         <label class="theme-switch">
@@ -20,7 +24,20 @@
         </label>
     </div>
     <main>
-        <p>Este es el cuerpo de la página de prueba. Aquí irá la ruleta y los regalos.</p>
+        <!-- Div inicial de selección -->
+        <div id="selectionDiv" class="centered">
+            <h2>Ingresa palabras para tu sorteo</h2>
+            <textarea id="wordList" rows="8" placeholder="Escribe una palabra por línea"></textarea>
+            <button id="startDraw">✨ Iniciar Sorteo ✨</button>
+        </div>
+
+        <!-- Div para el carrusel -->
+        <div id="carouselDiv" style="display:none;">
+            <h2>Resultados del sorteo</h2>
+            <div id="carouselContent">
+                <!-- Aquí irá el carrusel de regalos -->
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 - 2026 ML Gift Random Pick</p>
@@ -29,6 +46,30 @@
         $('#toggleTheme').change(function(){
             $('body').toggleClass('dark-mode');
         });
+    </script>
+    <script>
+        // Palabras predefinidas
+        let defaultWords = ["Regalo1", "Regalo2", "Regalo3"];
+        $('#wordList').val(defaultWords.join('\n'));
+
+        $('#startDraw').click(function() {
+            // Mostrar overlay con spinner
+            $('#spinnerOverlay').show();
+
+            // Obtener palabras del textarea
+            let words = $('#wordList').val().split('\n').filter(w => w.trim() !== '');
+            console.log("Palabras para sorteo:", words);
+
+            // Simular carga
+            setTimeout(function() {
+                $('#spinnerOverlay').hide();
+                $('#selectionDiv').hide();
+                $('#carouselDiv').show();
+
+                $('#carouselContent').html('<p>¡Carrusel listo con ' + words.length + ' palabras!</p>');
+            }, 2000);
+        });
+
     </script>
 </body>
 </html>
